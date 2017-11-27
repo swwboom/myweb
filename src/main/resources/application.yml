@@ -1,0 +1,110 @@
+server:
+  port: 80
+spring:
+#redis 配置
+#  redis:
+#    host: 10.3.2.239
+#    port: 6379
+#    password: 123456
+#测试环境
+#    host: 192.168.10.7
+#    port: 6379
+#    password: hiteam666
+#    timeout: 3000
+#    pool:
+#      # 连接池最大连接数（使用负值表示没有限制）
+#      max-active: 100
+#      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+#      max-wait: 1000
+#      # 连接池中的最大空闲连接
+#      max-idle: 8
+#      # 连接池中的最小空闲连接
+#      min-idle: 3
+
+
+# JDBC配置-开发环境
+#  datasource:
+#    druid:
+#      url: jdbc:mysql://10.3.2.239:3306/uws_dev
+#      driver-class-name: com.mysql.jdbc.Driver
+#      username: uws
+#      password: 123456
+# JDBC配置-测试环境
+  datasource:
+    druid:
+      url: jdbc:mysql://123.58.249.151:3306/uws_test
+      driver-class-name: com.mysql.jdbc.Driver
+      username: uws_test
+      password: H17eA#mn$Ms
+
+# JDBC配置-生产环境
+#  datasource:
+#    druid:
+#      url: jdbc:mysql://192.168.10.11:3306/uws
+#      driver-class-name: com.mysql.jdbc.Driver
+#      username: uws
+#      password: Gh1#j$1nM3.&
+# Druid 连接池配置
+      initial-size: 5
+      max-active: 30
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: -1
+      validation-query: select 'x'
+      validation-query-timeout: 5
+      test-on-borrow: true
+      test-on-return: false
+      test-while-idle: true
+# 监控配置
+      web-stat-filter:
+        enabled: false
+        url-pattern: /*
+#        exclusions: *.js、*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+        session-stat-enable: true
+        session-stat-max-count: 1000
+#        principal-session-name:
+#        principal-cookie-name:
+        profile-enable: true
+# StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+      stat-view-servlet:
+        enabled: true
+        reset-enable: true # 允许清空统计数据
+#        login-username: ddbes@hiteam
+#        login-password: 123456
+        url-pattern: /druid/*
+#        allow: #白名单ip(只允许指定ip访问，配置空允许所有)
+#        deny:  #黑名单ip
+
+#邮件配置
+  mail:
+    host: smtp.aliyun.com
+    username: just2do@aliyun.com
+    password: ...
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+#            required: true
+
+####################Swagger 2.x 接口文档生成配置################
+swagger:
+  enabled: true
+  title: 通用WEB服务系统 Universal Web Service API Doc
+  description: 接口文档实时更新，任何问题随时微信群反馈。
+  version: 1.4.0.RELEASE
+  license: Apache License, Version 2.0
+  licenseUrl: https://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfServiceUrl: https://github.com/dyc87112/spring-boot-starter-swagger
+  contact.name: Hiteam Tech DevGroup
+  contact.url: http://www.hiteamtech.com
+  contact.email: kechangzheng@hiteamtech.com
+  base-package: com.hiteamtech.uws.controller
+  base-path: /**
+  exclude-path: /error, /ops/**
+logging:
+  level:
+    com.hiteamtech.uws: debug
+#    root: debug

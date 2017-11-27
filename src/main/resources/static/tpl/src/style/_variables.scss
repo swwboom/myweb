@@ -1,0 +1,26 @@
+/*
+ * @Author: LiuLiXue QQ:136890965 
+ * @Date: 2017-10-24 14:00:56 
+ * @Last Modified by: LiuLiXue
+ * @Last Modified time: 2017-10-25 16:33:21
+ */
+/**
+  *变量文件
+*/
+/***全局级通用变量****/
+//整体body变量
+$body-bg-color: rgba(245,244,243,1);
+//一些通用的整体变量
+$common-bg-color: rgba(255,255,255,1);//元素背景色
+$border-color: #e0e0e0;//边框颜色
+/*****页面级的通用变量******/
+// 左右布局左侧固定宽度右侧弹性布局
+$left-width: 1.92rem /* 144/75 */;
+
+/***组件级通用变量***/
+// caption组件标题通用变量
+$caption-font-size: 15px;
+$caption-color: rgba(0,0,0,1);
+$caption-height: 1.333333rem /* 100/75 */;
+$caption-padding-lr: .346667rem /* 26/75 */;
+$caption-border-color: rgba(220,220,220,1);
